@@ -4,12 +4,17 @@
 
 ## 목차
 
-1.  [프로젝트 개요](#프로젝트-개요)
-2.  [최종 성능](#최종-성능)
-3.  [양자 머신 러닝(QML) 소개](#양자-머신-러닝qml-소개)
-4.  [실행 환경 설정](#실행-환경-설정)
-5.  [코드 설명](#코드-설명)
-6.  [모델 개선 가이드](#모델-개선-가이드)
+- [제1회 퀀텀 AI 경진대회 베이스라인 솔루션](#제1회-퀀텀-ai-경진대회-베이스라인-솔루션)
+  - [목차](#목차)
+  - [프로젝트 개요](#프로젝트-개요)
+  - [최종 성능](#최종-성능)
+  - [양자 머신 러닝(QML) 소개](#양자-머신-러닝qml-소개)
+  - [실행 환경 설정](#실행-환경-설정)
+    - [방법 1: uv를 사용한 가상환경 설정 (권장)](#방법-1-uv를-사용한-가상환경-설정-권장)
+    - [방법 2: 기존 pip 사용](#방법-2-기존-pip-사용)
+    - [Jupyter Notebook 실행](#jupyter-notebook-실행)
+  - [코드 설명](#코드-설명)
+  - [모델 개선 가이드](#모델-개선-가이드)
 
 ## 프로젝트 개요
 
@@ -32,10 +37,45 @@
 
 ## 실행 환경 설정
 
-이 프로젝트를 실행하기 위해서는 다음 라이브러리들이 필요합니다. `pip`를 사용하여 간단히 설치할 수 있습니다.
+이 프로젝트를 실행하기 위해서는 다음 라이브러리들이 필요합니다.
+
+### 방법 1: uv를 사용한 가상환경 설정 (권장)
+
+[uv](https://docs.astral.sh/uv/)는 빠르고 현대적인 Python 패키지 및 프로젝트 관리자입니다.
 
 ```bash
-pip install torch torchvision pennylane matplotlib tqdm
+# uv 설치 (macOS/Linux)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 가상환경 생성 및 활성화
+uv venv
+source .venv/bin/activate  # macOS/Linux
+# 또는 Windows의 경우: .venv\Scripts\activate
+
+# 필요한 패키지 설치
+uv pip install torch torchvision pennylane matplotlib tqdm jupyter notebook jupyterlab
+```
+
+### 방법 2: 기존 pip 사용
+
+```bash
+# 가상환경 생성 (선택사항)
+python -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+# 또는 Windows의 경우: .venv\Scripts\activate
+
+# 패키지 설치
+pip install torch torchvision pennylane matplotlib tqdm jupyter notebook jupyterlab
+```
+
+### Jupyter Notebook 실행
+
+환경 설정 후 다음 명령어로 Jupyter Notebook을 실행할 수 있습니다:
+
+```bash
+jupyter notebook
+# 또는 JupyterLab 사용
+jupyter lab
 ```
 
 ## 코드 설명
