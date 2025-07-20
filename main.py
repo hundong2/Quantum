@@ -177,6 +177,6 @@ print(f"\nAccuracy (labels 0/6 only): {acc:.4f}")
 
 now = datetime.now().strftime("%Y%m%d_%H%M%S")
 y_pred_filename = f"y_pred_{now}.csv"
-np.savetxt(y_pred_filename, y_pred_mapped, fmt="%d", header="prediction", comments="")
-
+#np.savetxt(y_pred_filename, y_pred_mapped, fmt="%d", header="prediction", comments="")
+np.savetxt(y_pred_filename, y_pred_mapped, fmt="%d")
 print(f"Prediction saved to {y_pred_filename}")
